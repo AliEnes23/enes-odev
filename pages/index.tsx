@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import BubbleSort from "../sort/bubble_sort";
+import SingletonExample from "../design-patterns/singleton";
 
 export default function Index() {
   //girilen değer state'i
@@ -25,6 +26,7 @@ export default function Index() {
   };
 
   return (
+    <>
     <div>
       <h1>Bubble Sort Sonucu</h1>
       {/**SONUÇ TITLE */}
@@ -35,5 +37,10 @@ export default function Index() {
       {sortedArray.length > 0 && <p>Sıralanmış dizi: {sortedArray.join(", ")}</p>}
       {/**SONUÇ */}
     </div>
+    <div>
+
+      <SingletonExample />
+    </div>
+    </>
   );
 }
