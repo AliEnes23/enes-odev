@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import BubbleSort from "../sort/bubble_sort";
 import SingletonExample from "../design-patterns/singleton";
+import ProxyProductExample from "../design-patterns/proxy_pattern/proxy_pattern";
 
 export default function Index() {
   //girilen değer state'i
@@ -40,6 +41,9 @@ export default function Index() {
     <div>
 
       <SingletonExample />
+    </div>
+    <div>
+      <ProxyProductExample />
     </div>
     </>
   );
