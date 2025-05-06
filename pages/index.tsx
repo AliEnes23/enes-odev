@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import BubbleSort from "../sort/bubble_sort";
 import SingletonExample from "../design-patterns/singleton";
 import ProxyProductExample from "../design-patterns/proxy_pattern/proxy_pattern";
+import { InfoCard } from "../design-patterns/prototype_pattern/CardPrototype";
+import CardComponent from "../design-patterns/prototype_pattern/CardComponent";
 
 export default function Index() {
   //girilen değer state'i
@@ -26,6 +28,22 @@ export default function Index() {
     setSortedArray(sorted);
   };
 
+
+
+
+  //clone
+
+  const originalCard = new InfoCard("Orijinal Kart", "Bu bir prototip örneğidir.", "#3498db");
+
+  const [clones, setClones] = useState<InfoCard[]>([]);
+
+  const handleClone = () => {
+    const cloned = originalCard.clone();
+    cloned.title += ` (${clones.length + 1})`;
+    cloned.color = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+    setClones([...clones, cloned]);
+  };
+
   return (
     <>
     <div>
@@ -44,6 +62,27 @@ export default function Index() {
     </div>
     <div>
       <ProxyProductExample />
+    </div>
+    <h1>PROTOTYPE DESIGN örneği</h1>
+    <div className="p-8 space-y-4">
+      <button onClick={handleClone} className="px-4 py-2 bg-green-500 text-white rounded">
+        Kartı Klonla
+      </button>
+
+      <CardComponent
+        title={originalCard.title}
+        description={originalCard.description}
+        color={originalCard.color}
+      />
+
+      {clones.map((card, i) => (
+        <CardComponent
+          key={i}
+          title={card.title}
+          description={card.description}
+          color={card.color}
+        />
+      ))}
     </div>
     </>
   );
