@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "design-patterns/observer_pattern/subject.ts"  ],
   "exclude": [
     "node_modules"
   ]

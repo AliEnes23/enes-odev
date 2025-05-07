@@ -4,8 +4,7 @@ import SingletonExample from "../design-patterns/singleton";
 import ProxyProductExample from "../design-patterns/proxy_pattern/proxy_pattern";
 import { InfoCard } from "../design-patterns/prototype_pattern/CardPrototype";
 import CardComponent from "../design-patterns/prototype_pattern/CardComponent";
-import { TextDisplay } from "../design-patterns/observer_pattern/textDisplay";
-import { CounterButton } from "../design-patterns/observer_pattern/counterButton";
+import ObserverComponent from "../design-patterns/observer_pattern/observerComp";
 
 export default function Index() {
   //girilen değer state'i
@@ -75,8 +74,9 @@ export default function Index() {
       </div>
       <h1>OBSERVER TASARIM ÖRNEĞİ</h1>{" "}
       <div className="p-8 space-y-4">
-        <TextDisplay />
-        <CounterButton />
+
+
+      <ObserverComponent />
       </div>
     </>
   );
