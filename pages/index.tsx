@@ -4,6 +4,8 @@ import SingletonExample from "../design-patterns/singleton";
 import ProxyProductExample from "../design-patterns/proxy_pattern/proxy_pattern";
 import { InfoCard } from "../design-patterns/prototype_pattern/CardPrototype";
 import CardComponent from "../design-patterns/prototype_pattern/CardComponent";
+import { TextDisplay } from "../design-patterns/observer_pattern/textDisplay";
+import { CounterButton } from "../design-patterns/observer_pattern/counterButton";
 
 export default function Index() {
   //girilen değer state'i
@@ -28,9 +30,6 @@ export default function Index() {
     setSortedArray(sorted);
   };
 
-
-
-
   //clone
 
   const originalCard = new InfoCard("Orijinal Kart", "Bu bir prototip örneğidir.", "#3498db");
@@ -40,50 +39,45 @@ export default function Index() {
   const handleClone = () => {
     const cloned = originalCard.clone();
     cloned.title += ` (${clones.length + 1})`;
-    cloned.color = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+    cloned.color = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
     setClones([...clones, cloned]);
   };
 
   return (
     <>
-    <div>
-      <h1>Bubble Sort Sonucu</h1>
-      {/**SONUÇ TITLE */}
-      <input type="text" value={inputValue} onChange={handleInputChange} placeholder="Sayılara virgül ile ayırarak yazın" />
-      {/* GİRİŞ */}
-      <button onClick={handleSort}>Sıralama Yap</button>
-      {/* BUTON */}
-      {sortedArray.length > 0 && <p>Sıralanmış dizi: {sortedArray.join(", ")}</p>}
-      {/**SONUÇ */}
-    </div>
-    <div>
+      <div>
+        <h1>Bubble Sort Sonucu</h1>
+        {/**SONUÇ TITLE */}
+        <input type="text" value={inputValue} onChange={handleInputChange} placeholder="Sayılara virgül ile ayırarak yazın" />
+        {/* GİRİŞ */}
+        <button onClick={handleSort}>Sıralama Yap</button>
+        {/* BUTON */}
+        {sortedArray.length > 0 && <p>Sıralanmış dizi: {sortedArray.join(", ")}</p>}
+        {/**SONUÇ */}
+      </div>
+      <div>
+        <SingletonExample />
+      </div>
+      <div>
+        <ProxyProductExample />
+      </div>
+      <h1>PROTOTYPE DESIGN örneği</h1>
+      <div className="p-8 space-y-4">
+        <button onClick={handleClone} className="px-4 py-2 bg-green-500 text-white rounded">
+          Kartı Klonla
+        </button>
 
-      <SingletonExample />
-    </div>
-    <div>
-      <ProxyProductExample />
-    </div>
-    <h1>PROTOTYPE DESIGN örneği</h1>
-    <div className="p-8 space-y-4">
-      <button onClick={handleClone} className="px-4 py-2 bg-green-500 text-white rounded">
-        Kartı Klonla
-      </button>
+        <CardComponent title={originalCard.title} description={originalCard.description} color={originalCard.color} />
 
-      <CardComponent
-        title={originalCard.title}
-        description={originalCard.description}
-        color={originalCard.color}
-      />
-
-      {clones.map((card, i) => (
-        <CardComponent
-          key={i}
-          title={card.title}
-          description={card.description}
-          color={card.color}
-        />
-      ))}
-    </div>
+        {clones.map((card, i) => (
+          <CardComponent key={i} title={card.title} description={card.description} color={card.color} />
+        ))}
+      </div>
+      <h1>OBSERVER TASARIM ÖRNEĞİ</h1>{" "}
+      <div className="p-8 space-y-4">
+        <TextDisplay />
+        <CounterButton />
+      </div>
     </>
   );
 }
