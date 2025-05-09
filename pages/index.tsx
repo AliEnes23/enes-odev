@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import BubbleSort from "../sort/bubble_sort";
-import SingletonExample from "../design-patterns/singleton";
+import SingletonExample from "../design-patterns/singleton/singleton";
 import ProxyProductExample from "../design-patterns/proxy_pattern/proxy_pattern";
 import { InfoCard } from "../design-patterns/prototype_pattern/CardPrototype";
 import CardComponent from "../design-patterns/prototype_pattern/CardComponent";
@@ -8,6 +8,7 @@ import ObserverComponent from "../design-patterns/observer_pattern/observerComp"
 import { useCounter } from "../design-patterns/module_pattern/counter/counter";
 import { CounterDisplay } from "../design-patterns/module_pattern/comps/counter-display";
 import { CounterControls } from "../design-patterns/module_pattern/comps/counter-controls";
+import AvailableMixin from "../design-patterns/mixin_pattern/mixin";
 
 export default function Index() {
   //girilen değer state'i
@@ -96,6 +97,14 @@ export default function Index() {
       <div className="p-8 space-y-4" style={{ padding: 10, paddingLeft: 100 }}>
         <CounterDisplay count={value} />
         <CounterControls onIncrement={() => handleUpdate(counter.increment)} onDecrement={() => handleUpdate(counter.decrement)} onReset={() => handleUpdate(counter.reset)} />
+      </div>
+
+
+        <div className="p-8 space-y-4" style={{ padding: 10, paddingLeft: 100 }}>
+        <h1>MIXIN TASARIM ÖRNEĞİ</h1>{" "}
+        <div>
+          <AvailableMixin />
+        </div>
       </div>
     </>
   );
