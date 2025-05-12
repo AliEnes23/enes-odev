@@ -9,6 +9,9 @@ import { useCounter } from "../design-patterns/module_pattern/counter/counter";
 import { CounterDisplay } from "../design-patterns/module_pattern/comps/counter-display";
 import { CounterControls } from "../design-patterns/module_pattern/comps/counter-controls";
 import AvailableMixin from "../design-patterns/mixin_pattern/mixin";
+import MediatorExample from "../design-patterns/mediator_pattern/mediator-example";
+import FlyweightExample from "../design-patterns/flyweight_pattern/flyweight-example";
+import FactoryExample from "../design-patterns/usercardfactory_pattern/factory-example";
 
 export default function Index() {
   //girilen değer state'i
@@ -99,11 +102,31 @@ export default function Index() {
         <CounterControls onIncrement={() => handleUpdate(counter.increment)} onDecrement={() => handleUpdate(counter.decrement)} onReset={() => handleUpdate(counter.reset)} />
       </div>
 
-
-        <div className="p-8 space-y-4" style={{ padding: 10, paddingLeft: 100 }}>
+      <div className="p-8 space-y-4" style={{ padding: 10, paddingLeft: 100 }}>
         <h1>MIXIN TASARIM ÖRNEĞİ</h1>{" "}
         <div>
           <AvailableMixin />
+        </div>
+      </div>
+
+      <div className="p-8 space-y-4" style={{ padding: 10, paddingLeft: 100 }}>
+        <h1>MEDIATOR TASARIM ÖRNEĞİ</h1>{" "}
+        <div>
+          <MediatorExample />
+        </div>
+      </div>
+
+      <div className="p-8 space-y-4" style={{ padding: 10, paddingLeft: 100 }}>
+        <h1>FLYWEIGHT TASARIM ÖRNEĞİ</h1>{" "}
+        <div>
+          <FlyweightExample />
+        </div>
+      </div>
+
+      <div className="p-8 space-y-4" style={{ padding: 10, paddingLeft: 100 }}>
+        <h1>FACTORY TASARIM ÖRNEĞİ</h1>{" "}
+        <div>
+          <FactoryExample />
         </div>
       </div>
     </>
